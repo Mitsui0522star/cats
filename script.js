@@ -10,6 +10,17 @@ const catsData = [
         description: "大李华是一只非常亲人的狸花猫，它性格温顺，喜欢和人互动，特别喜欢被摸摸头。",
         characteristics: "狸花色，毛色逐渐发黄",
         neutered: "未绝育"
+    },
+    {
+        id: 2,
+        name: "大开门",
+        image: "images/大李华.png",
+        status: "健康",
+        age: "1岁",
+        gender: "母猫",
+        description: "大开门是一只亲人的三花猫，它性格温顺，未来校区的颜值巅峰。",
+        characteristics: "三花色，小脸大美女",
+        neutered: "未绝育"
     }
 ];
 
