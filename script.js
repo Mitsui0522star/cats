@@ -3,7 +3,7 @@ const catsData = [
     {
         id: 1,
         name: "大李华",
-        image: "images/小橘.jpg",
+        image: "images/大李华.png",
         status: "健康",
         age: "1岁",
         gender: "母猫",
