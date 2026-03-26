@@ -346,16 +346,16 @@ body {
 
 .cat-image-wrap {
     position: relative;
-    height: 220px;
     overflow: hidden;
-    background: #E8E6F8;
+    background: #f5f4fb;
     flex-shrink: 0;
 }
 
 .cat-image-wrap img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    max-height: 320px;
+    object-fit: contain;
     transition: transform 0.4s ease;
     display: block;
 }
@@ -531,15 +531,15 @@ body {
 
 .modal-image {
     width: 100%;
-    height: 280px;
     overflow: hidden;
-    background: #E8E6F8;
+    background: #f5f4fb;
 }
 
 .modal-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    max-height: 360px;
+    object-fit: contain;
     display: block;
 }
 
