@@ -405,6 +405,7 @@ body {
 .tag-gender-m   { background: #DDE8FF; color: #3455B0; }
 .tag-gender-f   { background: #F5DEFF; color: #8830B8; }
 .tag-age        { background: #E0F4FF; color: #1A6EA0; }
+.tag-birthday   { background: #FFF0F5; color: #C44D8A; }
 .tag-neutered   { background: #DDFAF0; color: #1A7A58; }
 .tag-unneutered { background: #FFF0E0; color: #A06018; }
 
@@ -617,6 +618,14 @@ body {
     text-transform: uppercase;
     display: block;
     margin-bottom: 0.5rem;
+}
+
+.modal-updated {
+    margin-top: 1.2rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-align: right;
+    opacity: 0.7;
 }
 
 /* ──────────────────────────────────────────

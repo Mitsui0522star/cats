@@ -2,25 +2,29 @@
 const catsData = [
     {
         id: 1,
-        name: "大灰",
-        image: "images/大灰.jpg",
+        name: "灰灰酱",
+        image: "images/灰灰酱.jpg",
         status: "健康",
         age: "1岁",
         gender: "母猫",
-        description: "大灰是一只非常亲人的狸花猫，它性格温顺，喜欢和人互动，特别喜欢被摸摸头。",
+        birthday: "未知",
+        description: "灰灰酱是一只非常亲人的狸花猫，它性格温顺，喜欢和人互动，特别喜欢被摸摸头。",
         characteristics: "狸花色，毛色逐渐发黄",
-        neutered: "未绝育"
+        neutered: "未绝育",
+        updatedAt: "2026-03-30"
     },
     {
         id: 2,
         name: "小开门",
         image: "images/小开门.jpg",
         status: "健康",
-        age: "1岁",
+        age: "0-1岁",
         gender: "母猫",
+        birthday: "2025-07-06",
         description: "小开门是一只亲人的三花猫，它性格温顺，未来校区的颜值巅峰。",
         characteristics: "三花色，小脸大美女",
-        neutered: "未绝育"
+        neutered: "未绝育",
+        updatedAt: "2026-03-30"
     },
     {
         id: 3,
@@ -29,9 +33,50 @@ const catsData = [
         status: "健康",
         age: "1岁",
         gender: "公猫",
-        description: "小橘是一只橘白，喜欢围着送饭官蹭蹭，但是吃饭时特别护食，小心被挠。",
+        birthday: "未知",
+        description: "小橘是一只橘白，喜欢围着送饭官蹭蹭蹭，但是吃饭时有点护食，小心被挠。",
         characteristics: "橘白，眼神很无辜",
-        neutered: "未绝育"
+        neutered: "未绝育",
+        updatedAt: "2026-03-30"
+    },
+    {
+        id: 4,
+        name: "面具侠",
+        image: "images/面具侠.jpg",
+        status: "健康",
+        age: "1岁",
+        gender: "母猫",
+        birthday: "未知",
+        description: "面具侠是一只简州猫，面部像带着面具而得名，颜值顶流，非常亲人，喜欢干饭，育有3子",
+        characteristics: "简州猫，小脸超可爱呀",
+        neutered: "未绝育",
+        updatedAt: "2026-03-30"
+    },
+    {
+        id: 5,
+        name: "小小橘ABC",
+        image: "images/小小橘ABCD.jpg",
+        status: "健康",
+        age: "0-1岁",
+        gender: "公猫",
+        birthday: "未知",
+        description: "小小橘ABC是3只猫，傻傻分不清楚,随叫随到，摸头的时候稍显抗拒",
+        characteristics: "橘白，都有白领带和白手套",
+        neutered: "未绝育",
+        updatedAt: "2026-03-30"
+    },
+    {
+        id: 6,
+        name: "小小橘D",
+        image: "images/小小橘ABCD.jpg",
+        status: "健康",
+        age: "0-1岁",
+        gender: "母猫",
+        birthday: "未知",
+        description: "小小橘D和ABC是一胎生，除了性别，长相也傻傻分不清楚（所以用的同一张图），随叫随到，摸头的时候稍显抗拒",
+        characteristics: "橘白，有白领带和白手套",
+        neutered: "未绝育",
+        updatedAt: "2026-03-30"
     }
 ];
 
@@ -187,6 +232,18 @@ function getNeuteredTag(neutered) {
     return `<span class="tag ${cls}">${icon} ${neutered}</span>`;
 }
 
+function formatBirthday(dateStr) {
+    if (!dateStr) return '未知';
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return dateStr;
+    return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
+}
+
+function getBirthdayTag(birthday) {
+    if (!birthday) return '';
+    return `<span class="tag tag-birthday">🎂 ${formatBirthday(birthday)}</span>`;
+}
+
 function displayCats(cats) {
     if (cats.length === 0) {
         catsContainer.innerHTML = `
@@ -238,15 +295,14 @@ function openCatModal(catId) {
                 <h3>${cat.name}</h3>
                 <span class="status-badge ${getStatusClass(cat.status)}">${cat.status}</span>
             </div>
-            <div class="modal-tags">
-                ${getGenderTag(cat.gender)}
-                <span class="tag tag-age">🗓 ${cat.age}</span>
-                ${getNeuteredTag(cat.neutered)}
-            </div>
             <div class="modal-details">
                 <div class="modal-detail">
                     <strong>年龄</strong>
                     <span>${cat.age}</span>
+                </div>
+                <div class="modal-detail">
+                    <strong>生日</strong>
+                    <span>${cat.birthday ? formatBirthday(cat.birthday) : '未知'}</span>
                 </div>
                 <div class="modal-detail">
                     <strong>性别</strong>
@@ -265,6 +321,7 @@ function openCatModal(catId) {
                 <span class="desc-label">详细描述</span>
                 <p>${cat.description}</p>
             </div>
+            ${cat.updatedAt ? `<div class="modal-updated">最后更新：${formatBirthday(cat.updatedAt)}</div>` : ''}
         </div>
     `;
 
@@ -343,6 +400,7 @@ function handleAddCatSubmit(e) {
             name: formData.get('name').trim(),
             age: formData.get('age').trim(),
             gender: formData.get('gender'),
+            birthday: formData.get('birthday') || '',
             status: formData.get('status'),
             neutered: formData.get('neutered'),
             location: '校园内',
