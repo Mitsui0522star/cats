@@ -66,9 +66,10 @@ const catsData = [
         birthday: "2025年上半年",
         description: "面具侠是一只简州猫，面部像带着面具而得名，大明星的颜值，喜欢干饭，曾有3个孩子",
         characteristics: "简州猫，小脸超可爱呀",
-        neutered: "未绝育",
+        neutered: "已绝育",
+        neuteredDate: "2026-06-15",
         vaccine: ["", "", ""],
-        updatedAt: "2026-06-07",
+        updatedAt: "2026-06-28",
         relations: [
             { type: "闺蜜", name: "小刘海" }
         ]
@@ -443,13 +444,13 @@ const alumniData = [
         id: 113,
         name: "小七",
         image: "images/灰灰娃2.jpg",
-        gender: "未知",
+        gender: "公猫",
         description: "灰灰的孩子，目前被好心人领养了",
         characteristics: "长毛狸白，毛茸茸的",
         neutered: "未绝育",
         leaveReason: "被领养",
         vaccine: ["", "", ""],
-        updatedAt: "2026-06-07",
+        updatedAt: "2026-06-28",
         relations: [
             { type: "妈妈", name: "灰灰酱" },
             { type: "兄/弟/姐/妹", name: "Siri、焦糖、南瓜" }
