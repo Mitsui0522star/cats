@@ -21,7 +21,6 @@
         <div class="container">
             <ul>
                 <li><a href="#home" class="active">在校猫友</a></li>
-                <li><a href="#overview">在校猫咪全览</a></li>
                 <li><a href="#alumni">离校猫友</a></li>
                 <li><a href="#about">关于我们</a></li>
             </ul>
@@ -34,88 +33,121 @@
         <div class="container">
 
             <!-- 搜索 & 筛选 -->
-            <section class="search-section">
-                <div class="search-row">
-                    <div class="search-input-wrap">
-                        <span class="search-icon">🔍</span>
-                        <input type="text" id="searchInput" placeholder="搜索猫咪名称、特征或描述…">
-                    </div>
-                    <button id="searchBtn">搜索</button>
-                </div>
-                <div class="filter-row">
-                    <div class="filter-item">
-                        <span class="filter-label">健康状态</span>
-                        <select id="statusFilter">
-                            <option value="">全部</option>
-                            <option value="健康">健康</option>
-                            <option value="需要帮助">需要帮助</option>
-                        </select>
-                    </div>
-                    <div class="filter-divider"></div>
-                    <div class="filter-item">
-                        <span class="filter-label">是否绝育</span>
-                        <select id="neuteredFilter">
-                            <option value="">全部</option>
-                            <option value="已绝育">已绝育</option>
-                            <option value="未绝育">未绝育</option>
-                        </select>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 首页：在校猫咪列表 -->
+            <!-- 首页：在校猫咪 -->
             <section id="home">
-                <div id="catsContainer" class="cats-grid"></div>
-            </section>
-
-            <!-- 在校全览 -->
-            <section id="overview" style="display:none;">
-                <div class="table-wrapper">
-                    <table id="overviewTable" class="overview-table">
-                        <thead>
-                            <tr>
-                                <th class="col-seq">序号</th>
-                                <th class="col-photo">照片</th>
-                                <th class="col-name sortable" data-sort="name">名字 ▾</th>
-                                <th class="col-gender sortable" data-sort="gender">性别 ▾</th>
-                                <th class="col-age sortable" data-sort="age">年龄 ▾</th>
-                                <th class="col-birthday sortable" data-sort="birthday">生日 ▾</th>
-                                <th class="col-status sortable" data-sort="status">状态 ▾</th>
-                                <th class="col-neutered sortable" data-sort="neutered">绝育 ▾</th>
-                                <th class="col-neutered-date sortable" data-sort="neuteredDate">绝育日期 ▾</th>
-                                <th class="col-vaccine sortable" data-sort="vaccine">疫苗状态 ▾</th>
-                                <th class="col-vaccine-date sortable" data-sort="vaccineDate">疫苗最新接种时间 ▾</th>
-                            </tr>
-                        </thead>
-                        <tbody id="overviewBody"></tbody>
-                    </table>
+                <div class="alumni-toolbar">
+                    <div class="view-switcher">
+                        <button class="view-switch-btn active" data-view="card" data-target="home">📇 卡片展示</button>
+                        <button class="view-switch-btn" data-view="table" data-target="home">📊 列表展示</button>
+                    </div>
+                </div>
+                <div id="homeCardView">
+                    <div class="search-section">
+                        <div class="search-row">
+                            <div class="search-input-wrap">
+                                <span class="search-icon">🔍</span>
+                                <input type="text" id="searchInput" placeholder="搜索猫咪名称、特征或描述…">
+                            </div>
+                            <button id="searchBtn">搜索</button>
+                        </div>
+                        <div class="filter-row">
+                            <div class="filter-item">
+                                <span class="filter-label">健康状态</span>
+                                <select id="statusFilter">
+                                    <option value="">全部</option>
+                                    <option value="健康">健康</option>
+                                    <option value="需要帮助">需要帮助</option>
+                                </select>
+                            </div>
+                            <div class="filter-divider"></div>
+                            <div class="filter-item">
+                                <span class="filter-label">是否绝育</span>
+                                <select id="neuteredFilter">
+                                    <option value="">全部</option>
+                                    <option value="已绝育">已绝育</option>
+                                    <option value="未绝育">未绝育</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="catsContainer" class="cats-grid"></div>
+                </div>
+                <div id="homeTableView" style="display:none;">
+                    <div class="table-wrapper">
+                        <table id="overviewTable" class="overview-table">
+                            <thead>
+                                <tr>
+                                    <th class="col-seq">序号</th>
+                                    <th class="col-photo">照片</th>
+                                    <th class="col-name sortable" data-sort="name">名字 ▾</th>
+                                    <th class="col-gender sortable" data-sort="gender">性别 ▾</th>
+                                    <th class="col-age sortable" data-sort="age">年龄 ▾</th>
+                                    <th class="col-birthday sortable" data-sort="birthday">生日 ▾</th>
+                                    <th class="col-status sortable" data-sort="status">状态 ▾</th>
+                                    <th class="col-neutered sortable" data-sort="neutered">绝育 ▾</th>
+                                    <th class="col-neutered-date sortable" data-sort="neuteredDate">绝育日期 ▾</th>
+                                    <th class="col-vaccine sortable" data-sort="vaccine">疫苗状态 ▾</th>
+                                    <th class="col-vaccine-date sortable" data-sort="vaccineDate">疫苗最新接种时间 ▾</th>
+                                </tr>
+                            </thead>
+                            <tbody id="overviewBody"></tbody>
+                        </table>
+                    </div>
                 </div>
             </section>
 
             <!-- 离校猫友 -->
             <section id="alumni" style="display:none;">
-                <div class="search-section" id="alumniSearchSection">
-                    <div class="search-row">
-                        <div class="search-input-wrap">
-                            <span class="search-icon">🔍</span>
-                            <input type="text" id="alumniSearchInput" placeholder="搜索猫咪名称、特征或描述…">
-                        </div>
-                        <button id="alumniSearchBtn">搜索</button>
-                    </div>
-                    <div class="filter-row">
-                        <div class="filter-item">
-                            <span class="filter-label">离校原因</span>
-                            <select id="leaveReasonFilter">
-                                <option value="">全部</option>
-                                <option value="被领养">被领养</option>
-                                <option value="走失">走失</option>
-                                <option value="去喵星">去喵星</option>
-                                <option value="其他">其他</option>
-                            </select>
-                        </div>
+                <div class="alumni-toolbar">
+                    <div class="view-switcher">
+                        <button class="view-switch-btn active" data-view="card" data-target="alumni">📇 卡片展示</button>
+                        <button class="view-switch-btn" data-view="table" data-target="alumni">📊 列表展示</button>
                     </div>
                 </div>
-                <div id="alumniContainer" class="cats-grid"></div>
+                <div id="alumniCardView">
+                    <div class="search-section" id="alumniSearchSection">
+                        <div class="search-row">
+                            <div class="search-input-wrap">
+                                <span class="search-icon">🔍</span>
+                                <input type="text" id="alumniSearchInput" placeholder="搜索猫咪名称、特征或描述…">
+                            </div>
+                            <button id="alumniSearchBtn">搜索</button>
+                        </div>
+                        <div class="filter-row">
+                            <div class="filter-item">
+                                <span class="filter-label">离校原因</span>
+                                <select id="leaveReasonFilter">
+                                    <option value="">全部</option>
+                                    <option value="被领养">被领养</option>
+                                    <option value="走失">走失</option>
+                                    <option value="去喵星">去喵星</option>
+                                    <option value="其他">其他</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="alumniContainer" class="cats-grid"></div>
+                </div>
+                <div id="alumniOverviewView" style="display:none;">
+                    <div class="table-wrapper">
+                        <table id="alumniOverviewTable" class="overview-table">
+                            <thead>
+                                <tr>
+                                    <th class="col-seq">序号</th>
+                                    <th class="col-photo">照片</th>
+                                    <th class="col-name sortable" data-sort="name">名字 ▾</th>
+                                    <th class="col-gender sortable" data-sort="gender">性别 ▾</th>
+                                    <th class="col-birthday sortable" data-sort="birthday">生日 ▾</th>
+                                    <th class="col-neutered sortable" data-sort="neutered">绝育 ▾</th>
+                                    <th class="col-neutered-date sortable" data-sort="neuteredDate">绝育日期 ▾</th>
+                                    <th class="col-leave-reason sortable" data-sort="leaveReason">离校原因 ▾</th>
+                                    <th class="col-leave-date sortable" data-sort="leaveDate">离校时间 ▾</th>
+                                </tr>
+                            </thead>
+                            <tbody id="alumniOverviewBody"></tbody>
+                        </table>
+                    </div>
+                </div>
             </section>
 
             <!-- 关于我们 -->
